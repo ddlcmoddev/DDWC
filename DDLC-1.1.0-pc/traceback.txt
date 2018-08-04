@@ -1,0 +1,41 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "renpy/common/00start.rpy", line 212, in script call
+    call _splashscreen from _call_splashscreen_1
+  File "game/splash.rpy", line 270, in script
+    show intro with Dissolve(0.5, alpha=True)
+IOError: Couldn't find file 'Your Reality.wav'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "renpy/common/00start.rpy", line 212, in script call
+    call _splashscreen from _call_splashscreen_1
+  File "game/splash.rpy", line 270, in script
+    show intro with Dissolve(0.5, alpha=True)
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\ast.py", line 1275, in execute
+    renpy.exports.with_statement(trans, paired)
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\exports.py", line 1381, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\display\core.py", line 2096, in do_with
+    clear=clear)
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\display\core.py", line 2526, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\display\core.py", line 2825, in interact_core
+    renpy.audio.audio.interact()
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\audio\audio.py", line 930, in interact
+    periodic()
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\audio\audio.py", line 864, in periodic
+    c.periodic()
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\audio\audio.py", line 403, in periodic
+    topf = load(self.file_prefix + filename + self.file_suffix)
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\audio\audio.py", line 67, in load
+    rv = renpy.loader.load(fn)
+  File "D:\dok\doki doki waifu club ddlc mod\DDWC\DDLC-1.1.0-pc\renpy\loader.py", line 543, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'Your Reality.wav'.
+
+Windows-8-6.2.9200
+Ren'Py 6.99.12.4.2187
+Doki Doki Waifu Club (beta) (remember to delete this!) 1.1
