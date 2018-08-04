@@ -7,7 +7,7 @@ label minigame:
     image y1 = im.FactorScale("y_mg_1.png", 0.25, xalign=0.15, yalign=0.1)
     image m1 = im.FactorScale("m_mg_1.png", 0.25, xalign=0.15, yalign=0.9)
     scene bg_minigame
-    play music "mg.mp3"
+    
 
 
 
