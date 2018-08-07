@@ -24,12 +24,13 @@ if usb == True:
 	os.chdir(drlist)
 	print(drlist)
 	user = os.environ.get('USERNAME')
+	#gets username
 	file = open("openme.txt","w") 
  
 	file.write("I love you " + user) 
 	file.close() 
 	subprocess.Popen(r'explorer')
-
+	#writes file on USB
 else:
 	print("you don't have a external storage device connected")
 
