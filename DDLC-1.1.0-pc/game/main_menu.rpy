@@ -98,4 +98,5 @@ screen menu_nav2:
     background "mod_assets/menu-nav.png"
     xalign 1.0
     yalign 1.0
+    #ugh
     
