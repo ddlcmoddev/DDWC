@@ -2,6 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/splash.rpy", line 30: indentation mismatch.
+File "game/main_menu.rpy", line 78: style property add is not known.
+    add "menu_nav2"
+       ^
 
 Ren'Py Version: Ren'Py 6.99.12.4.2187

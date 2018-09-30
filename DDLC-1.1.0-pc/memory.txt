@@ -1,11 +1,11 @@
-Thu Jul 12 00:50:36 2018
+Sat Aug 04 07:32:47 2018
 Windows-8-6.2.9200
 Ren'Py 6.99.12.4.2187
 Doki Doki Waifu Club (beta) (remember to delete this!) 1.1
 
 ==============================================================================
 
-Memory diff at Thu Jul 12 00:50:36 2018:
+Memory diff at Sat Aug 04 07:32:47 2018:
 
             +8             8 renpy.__doc__
            +12            12 renpy.angle.gltexture.MAX_SIZE
@@ -29,9 +29,9 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +12            12 renpy.config.mouse_hide_time
            +12            12 renpy.config.quicksave_slots
            +12            12 renpy.config.rollback_length
+           +12            12 renpy.config.screen_cache_size
            +12            12 renpy.config.screen_height
            +12            12 renpy.config.screen_width
-           +12            12 renpy.config.skip_delay
            +12            12 renpy.config.sound_sample_rate
            +12            12 renpy.config.thumbnail_height
            +12            12 renpy.config.thumbnail_width
@@ -47,8 +47,8 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +12            12 renpy.python.new_compile_flags
            +12            12 renpy.python.old_compile_flags
            +12            12 renpy.python.serial
+           +12            12 renpy.script.script_version
            +12            12 renpy.script_version
-           +12            12 renpy.sl2.slast.serial
            +12            12 renpy.subprocess.CREATE_NEW_CONSOLE
            +12            12 renpy.subprocess.CREATE_NEW_PROCESS_GROUP
            +12            12 renpy.subprocess.PIPE
@@ -59,6 +59,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +12            12 renpy.test.testkey.k
            +12            12 renpy.text.textsupport.i
            +12            12 renpy.vc_version
+           +12            12 renpy.vc_version.vc_version
            +12            12 store.POEM_DISLIKE_THRESHOLD
            +12            12 store.POEM_LIKE_THRESHOLD
            +12            12 store.gui.bar_size
@@ -70,6 +71,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +12            12 store.gui.label_text_size
            +12            12 store.gui.name_xpos
            +12            12 store.gui.name_ypos
+           +12            12 store.gui.namebox_height
            +12            12 store.gui.namebox_width
            +12            12 store.gui.navigation_spacing
            +12            12 store.gui.navigation_xpos
@@ -91,7 +93,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +12            12 store.gui.text_ypos
            +12            12 store.gui.textbox_height
            +12            12 store.gui.title_text_size
-           +12            12 store.gui.tutorial_button_width
            +14            14 renpy.display.controller.CONTROLLERAXISMOTION
            +14            14 renpy.display.controller.CONTROLLERBUTTONDOWN
            +14            14 renpy.display.controller.CONTROLLERBUTTONUP
@@ -140,7 +141,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +16            16 store.gui.slot_button_text_xalign
            +16            16 store.gui.text_xalign
            +16            16 store.gui.textbox_yalign
-           +16            16 store.gui.tutorial_button_text_xalign
            +16            16 store.monikaTime
            +16            16 store.natsukiTime
            +16            16 store.sayoriTime
@@ -196,7 +196,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +26            26 renpy.warp.__package__
            +26            26 store.__package__
            +27            27 renpy.config.default_tag_layer
-           +27            27 store.currentuser
            +28            28 renpy.config.choice_layer
            +28            28 renpy.sl2.sldisplayables.i
            +29            29 renpy.gl.__name__
@@ -207,11 +206,13 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +29            29 renpy.gl.glrtt_copy.__package__
            +29            29 renpy.gl.glrtt_fbo.__package__
            +29            29 renpy.gl.gltexture.__package__
+           +29            29 renpy.parser.original_filename
            +29            29 renpy.sl2.slproperties.i
            +29            29 renpy.ui.__name__
            +29            29 renpy.ui.k
            +30            30 renpy.ast.__name__
            +30            30 renpy.atl.__name__
+           +30            30 renpy.loadsave.savegame_suffix
            +30            30 renpy.log.__name__
            +30            30 renpy.savegame_suffix
            +30            30 renpy.sl2.__name__
@@ -219,7 +220,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +30            30 renpy.sl2.sldisplayables.__package__
            +30            30 renpy.sl2.slparser.__package__
            +30            30 renpy.sl2.slproperties.__package__
-           +30            30 store._last_say_who
            +30            30 store.gui.__name__
            +30            30 store.iap.__name__
            +30            30 store.player
@@ -332,13 +332,12 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +34            34 store.gui.quick_button_text_hover_color
            +34            34 store.gui.quick_button_text_idle_color
            +34            34 store.gui.quick_button_text_insensitive_color
-           +34            34 store.gui.tutorial_button_text_hover_color
-           +34            34 store.gui.tutorial_button_text_idle_color
            +34            34 store.gui.unscrollable
            +34            34 store.updater.__package__
            +34            34 store.y_name
            +35            35 renpy.add_from.__name__
            +35            35 renpy.angle.gl.__name__
+           +35            35 renpy.exports.version_only
            +35            35 renpy.loadsave.__name__
            +35            35 renpy.minstore.__name__
            +35            35 renpy.version_only
@@ -552,8 +551,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +39            39 renpy.test.testkey.__name__
            +39            39 renpy.text.texwrap.__name__
            +40            40 renpy.angle.gltexture.SIZES
-           +40            40 renpy.config.context_clear_layers
-           +40            40 renpy.config.emphasize_audio_channels
            +40            40 renpy.config.nvl_layer
            +40            40 renpy.config.nvl_page_ctc_position
            +40            40 renpy.display.error.__name__
@@ -566,10 +563,10 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +40            40 renpy.script.BYTECODE_FILE
            +40            40 renpy.substitutions.__name__
            +40            40 store.gui.accent_color
-           +40            40 store.gui.button_text_idle_color
            +40            40 store.gui.button_text_selected_color
            +40            40 store.gui.hover_color
            +40            40 store.gui.hover_muted_color
+           +40            40 store.gui.idle_color
            +40            40 store.gui.interface_text_color
            +40            40 store.gui.main_menu_background
            +40            40 store.gui.muted_color
@@ -581,6 +578,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +41            41 renpy.display.render.__name__
            +41            41 renpy.display.screen.__name__
            +41            41 renpy.display.swdraw.__name__
+           +41            41 renpy.exports.version_name
            +41            41 renpy.gl.glblacklist.__name__
            +41            41 renpy.test.testfocus.__name__
            +41            41 renpy.test.testmouse.__name__
@@ -589,9 +587,9 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +42            42 renpy.angle.gltexture.__name__
            +42            42 renpy.display.gesture.__name__
            +42            42 renpy.display.predict.__name__
+           +42            42 renpy.exports.version_string
            +42            42 renpy.test.testparser.__name__
            +42            42 renpy.version
-           +42            42 store.name
            +43            43 renpy.angle.glrtt_copy.__name__
            +43            43 renpy.audio.renpysound.__name__
            +43            43 renpy.display.behavior.__name__
@@ -606,7 +604,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +43            43 renpy.sl2.slproperties.__name__
            +43            43 renpy.text.textsupport.__name__
            +44            44 renpy.angle.glblacklist.__name__
-           +44            44 renpy.display.emulator.TOUCH_KEYS
            +44            44 renpy.display.imagelike.__name__
            +44            44 renpy.display.presplash.__name__
            +44            44 renpy.display.transform.__name__
@@ -644,6 +641,8 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +52            52 renpy.config.after_load_callbacks
            +52            52 renpy.config.build_styles_callbacks
            +52            52 renpy.config.change_language_callbacks
+           +52            52 renpy.config.context_clear_layers
+           +52            52 renpy.config.emphasize_audio_channels
            +52            52 renpy.config.history_callbacks
            +52            52 renpy.config.interact_callbacks
            +52            52 renpy.config.mode_callbacks
@@ -653,6 +652,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +52            52 renpy.config.start_callbacks
            +52            52 renpy.config.start_interact_callbacks
            +52            52 renpy.config.statement_callbacks
+           +52            52 renpy.display.focus.focus_list
            +52            52 renpy.exports._error_handlers
            +52            52 renpy.game.post_init
            +52            52 renpy.loader.old_config_archives
@@ -660,11 +660,11 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +52            52 store.gui.ARE_YOU_SURE
            +56            56 renpy.config.searchpath
            +57            57 renpy.styledata.style_idle_functions.__name__
-           +58            58 renpy.config.main_menu_music
            +58            58 renpy.styledata.style_hover_functions.__name__
            +58            58 store.audio.page_turn
            +60            60 renpy.config.save_directory
            +60            60 renpy.display.video.default_size
+           +60            60 renpy.exports.version_tuple
            +60            60 renpy.version_tuple
            +60            60 store.gui.hover_sound
            +61            61 renpy.styledata.style_activate_functions.__name__
@@ -679,7 +679,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +64            64 renpy.pyanalysis.dumps
            +64            64 renpy.styledata.style_insensitive_functions.__name__
            +64            64 store.audio.closet_open
-           +66            66 renpy.config.tts_voice_channels
            +66            66 renpy.loader.StringIO
            +66            66 renpy.styledata.style_selected_idle_functions.__name__
            +66            66 store.audio.closet_close
@@ -687,7 +686,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +67            67 renpy.display.text.log2vis
            +67            67 renpy.styledata.style_selected_hover_functions.__name__
            +68            68 renpy.config.key_repeat
-           +68            68 renpy.config.overlay_layers
+           +68            68 renpy.display.emulator.TOUCH_KEYS
            +68            68 renpy.loader.open_file
            +68            68 renpy.pyanalysis.CACHE_FILENAME
            +68            68 renpy.style.get_tuple_name
@@ -704,8 +703,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +68            68 store.audio.t9
            +68            68 store.gui.button_text_font
            +68            68 store.gui.choice_button_text_font
-           +69            69 renpy.config.lint_ignore_replaces
-           +70            70 renpy.config.transient_layers
            +70            70 renpy.styledata.style_selected_activate_functions.__name__
            +70            70 store.audio.t1
            +70            70 store.audio.t10
@@ -715,7 +712,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +70            70 store.audio.t9g
            +70            70 store.audio.td
            +70            70 store.build.destination
-           +72            72 renpy.config.search_prefixes
            +72            72 renpy.game.CONTROL_EXCEPTIONS
            +72            72 store.audio.t10y
            +72            72 store.audio.t2g3
@@ -725,12 +721,12 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +72            72 store.audio.t7g
            +73            73 renpy.styledata.style_selected_insensitive_functions.__name__
            +74            74 renpy.text.ftfont.init
+           +74            74 store._last_raw_what
            +74            74 store.build.directory_name
            +75            75 renpy.config.savedir
            +75            75 renpy.gl.gltexture.blit
            +75            75 renpy.gl.gltexture.compute_tiling
            +75            75 renpy.text.texwrap.linebreak_tex
-           +76            76 renpy.sl2.slparser.STYLE_PREFIXES
            +76            76 store.audio.ghostmenu
            +76            76 store.audio.hb
            +76            76 store.gui.activate_sound_glitch
@@ -738,191 +734,192 @@ Memory diff at Thu Jul 12 00:50:36 2018:
            +77            77 renpy.display.dragdrop.redraw
            +78            78 renpy.angle.gltexture.blit
            +78            78 renpy.angle.gltexture.compute_tiling
+           +78            78 renpy.config.tts_voice_channels
            +79            79 renpy.audio.renpysound.set_volume
            +79            79 renpy.display.controller.get_string_for_axis
            +79            79 renpy.display.text.language_tailor
+           +80            80 renpy.config.overlay_layers
+           +82            82 renpy.config.transient_layers
            +82            82 renpy.display.accelerator.transform_render
            +82            82 renpy.gl.glenviron_shader.compile_shader
            +82            82 renpy.parser.word_regexp
            +82            82 store.audio.t6r
            +82            82 store.gui.name_font
+           +84            84 renpy.config.search_prefixes
            +84            84 renpy.config.translate_clean_stores
            +84            84 renpy.config.window_auto_show
-           +84            84 renpy.ui.__file__
            +84            84 store.achievement.backends
            +85            85 renpy.angle.glenviron_shader.compile_shader
-           +85            85 renpy.ast.__file__
-           +85            85 renpy.atl.__file__
-           +85            85 renpy.log.__file__
-           +86            86 renpy.dump.__file__
-           +86            86 renpy.easy.__file__
-           +86            86 renpy.game.__file__
-           +86            86 renpy.lint.__file__
-           +86            86 renpy.main.__file__
-           +86            86 renpy.warp.__file__
            +86            86 store.audio.mend
            +86            86 store.gui.QUIT
-           +87            87 renpy.color.__file__
-           +87            87 renpy.curry.__file__
-           +87            87 renpy.error.__file__
-           +88            88 renpy.config.__file__
            +88            88 renpy.config.file_page_names
            +88            88 renpy.config.menu_clear_layers
            +88            88 renpy.config.predict_start_labels
-           +88            88 renpy.editor.__file__
-           +88            88 renpy.loader.__file__
-           +88            88 renpy.memory.__file__
-           +88            88 renpy.object.__file__
-           +88            88 renpy.parser.__file__
-           +88            88 renpy.python.__file__
-           +88            88 renpy.script.__file__
            +88            88 store.audio.t7a
-           +89            89 renpy.exports.__file__
-           +90            90 renpy.__file__
-           +90            90 renpy.add_from.__file__
-           +90            90 renpy.loadsave.__file__
-           +90            90 renpy.minstore.__file__
+           +89            89 renpy.ui.__file__
+           +90            90 renpy.ast.__file__
+           +90            90 renpy.atl.__file__
+           +90            90 renpy.log.__file__
            +90            90 store.audio.t2g2
-           +91            91 renpy.arguments.__file__
-           +91            91 renpy.bootstrap.__file__
-           +91            91 renpy.character.__file__
-           +91            91 renpy.display.text.__file__
-           +91            91 renpy.execution.__file__
-           +91            91 renpy.sl2.slast.__file__
-           +91            91 renpy.text.font.__file__
-           +92            92 renpy.display.im.__file__
+           +91            91 renpy.dump.__file__
+           +91            91 renpy.easy.__file__
+           +91            91 renpy.game.__file__
+           +91            91 renpy.lint.__file__
+           +91            91 renpy.main.__file__
+           +91            91 renpy.warp.__file__
+           +92            92 renpy.color.__file__
+           +92            92 renpy.curry.__file__
+           +92            92 renpy.error.__file__
            +92            92 renpy.parser.image_word_regexp
-           +92            92 renpy.persistent.__file__
-           +92            92 renpy.pyanalysis.__file__
-           +92            92 renpy.screenlang.__file__
-           +92            92 renpy.scriptedit.__file__
-           +92            92 renpy.statements.__file__
-           +92            92 renpy.vc_version.__file__
            +92            92 store.audio.t3g2
-           +93            93 renpy.audio.audio.__file__
-           +93            93 renpy.audio.music.__file__
-           +93            93 renpy.audio.sound.__file__
-           +93            93 renpy.display.tts.__file__
-           +93            93 renpy.gl.__file__
-           +93            93 renpy.preferences.__file__
-           +93            93 renpy.text.extras.__file__
-           +94            94 renpy.defaultstore.__file__
-           +94            94 renpy.display.anim.__file__
-           +94            94 renpy.display.core.__file__
-           +94            94 renpy.savelocation.__file__
-           +94            94 renpy.sl2.__file__
-           +94            94 renpy.sl2.slparser.__file__
-           +94            94 renpy.test.testast.__file__
-           +94            94 renpy.test.testkey.__file__
+           +93            93 renpy.config.__file__
+           +93            93 renpy.editor.__file__
+           +93            93 renpy.loader.__file__
+           +93            93 renpy.memory.__file__
+           +93            93 renpy.object.__file__
+           +93            93 renpy.parser.__file__
+           +93            93 renpy.python.__file__
+           +93            93 renpy.script.__file__
+           +94            94 renpy.exports.__file__
            +94            94 store.icon.path
-           +95            95 renpy.display.error.__file__
-           +95            95 renpy.display.focus.__file__
-           +95            95 renpy.display.image.__file__
-           +95            95 renpy.display.scale.__file__
-           +95            95 renpy.display.video.__file__
-           +95            95 renpy.substitutions.__file__
-           +95            95 renpy.test.__file__
-           +95            95 renpy.text.__file__
-           +96            96 renpy.angle.__file__
-           +96            96 renpy.audio.__file__
-           +96            96 renpy.display.layout.__file__
-           +96            96 renpy.display.module.__file__
-           +96            96 renpy.display.motion.__file__
-           +96            96 renpy.display.screen.__file__
-           +96            96 renpy.display.swdraw.__file__
-           +96            96 renpy.gl.glblacklist.__file__
-           +96            96 renpy.test.testfocus.__file__
-           +96            96 renpy.test.testmouse.__file__
-           +97            97 renpy.display.gesture.__file__
-           +97            97 renpy.display.predict.__file__
-           +97            97 renpy.test.testparser.__file__
-           +98            98 renpy.display.__file__
-           +98            98 renpy.display.behavior.__file__
-           +98            98 renpy.display.dragdrop.__file__
-           +98            98 renpy.display.emulator.__file__
-           +98            98 renpy.display.imagemap.__file__
-           +98            98 renpy.display.joystick.__file__
-           +98            98 renpy.display.minigame.__file__
-           +98            98 renpy.display.particle.__file__
-           +98            98 renpy.display.pgrender.__file__
-           +98            98 renpy.display.viewport.__file__
-           +98            98 renpy.sl2.slproperties.__file__
-           +99            99 renpy.angle.glblacklist.__file__
-           +99            99 renpy.display.imagelike.__file__
-           +99            99 renpy.display.presplash.__file__
-           +99            99 renpy.display.transform.__file__
-           +99            99 renpy.translation.merge.__file__
+           +95            95 renpy.__file__
+           +95            95 renpy.add_from.__file__
+           +95            95 renpy.loadsave.__file__
+           +95            95 renpy.minstore.__file__
+           +96            96 renpy.arguments.__file__
+           +96            96 renpy.bootstrap.__file__
+           +96            96 renpy.character.__file__
+           +96            96 renpy.display.text.__file__
+           +96            96 renpy.execution.__file__
+           +96            96 renpy.sl2.slast.__file__
+           +96            96 renpy.text.font.__file__
+           +97            97 renpy.display.im.__file__
+           +97            97 renpy.persistent.__file__
+           +97            97 renpy.pyanalysis.__file__
+           +97            97 renpy.screenlang.__file__
+           +97            97 renpy.scriptedit.__file__
+           +97            97 renpy.statements.__file__
+           +97            97 renpy.vc_version.__file__
+           +98            98 renpy.audio.audio.__file__
+           +98            98 renpy.audio.music.__file__
+           +98            98 renpy.audio.sound.__file__
+           +98            98 renpy.display.tts.__file__
+           +98            98 renpy.gl.__file__
+           +98            98 renpy.preferences.__file__
+           +98            98 renpy.text.extras.__file__
+           +99            99 renpy.defaultstore.__file__
+           +99            99 renpy.display.anim.__file__
+           +99            99 renpy.display.core.__file__
+           +99            99 renpy.savelocation.__file__
+           +99            99 renpy.sl2.__file__
+           +99            99 renpy.sl2.slparser.__file__
+           +99            99 renpy.test.testast.__file__
+           +99            99 renpy.test.testkey.__file__
           +100           100 renpy.audio.audio.all_channels
           +100           100 renpy.display.behavior.KEY_EVENTS
-          +100           100 renpy.display.controller.__file__
-          +100           100 renpy.display.transition.__file__
-          +100           100 renpy.sl2.sldisplayables.__file__
-          +100           100 renpy.styledata.__file__
-          +100           100 renpy.test.testexecution.__file__
-          +101           101 renpy.styledata.styleutil.__file__
-          +101           101 renpy.translation.extract.__file__
-          +102           102 renpy.translation.__file__
-          +102           102 renpy.translation.dialogue.__file__
-          +103           103 renpy.subprocess.__file__
-          +104           104 renpy.display.movetransition.__file__
+          +100           100 renpy.display.error.__file__
+          +100           100 renpy.display.focus.__file__
+          +100           100 renpy.display.image.__file__
+          +100           100 renpy.display.scale.__file__
+          +100           100 renpy.display.video.__file__
+          +100           100 renpy.substitutions.__file__
+          +100           100 renpy.test.__file__
+          +100           100 renpy.text.__file__
+          +101           101 renpy.angle.__file__
+          +101           101 renpy.audio.__file__
+          +101           101 renpy.display.layout.__file__
+          +101           101 renpy.display.module.__file__
+          +101           101 renpy.display.motion.__file__
+          +101           101 renpy.display.screen.__file__
+          +101           101 renpy.display.swdraw.__file__
+          +101           101 renpy.gl.glblacklist.__file__
+          +101           101 renpy.test.testfocus.__file__
+          +101           101 renpy.test.testmouse.__file__
+          +102           102 renpy.display.gesture.__file__
+          +102           102 renpy.display.predict.__file__
+          +102           102 renpy.test.testparser.__file__
+          +103           103 renpy.display.__file__
+          +103           103 renpy.display.behavior.__file__
+          +103           103 renpy.display.dragdrop.__file__
+          +103           103 renpy.display.emulator.__file__
+          +103           103 renpy.display.imagemap.__file__
+          +103           103 renpy.display.joystick.__file__
+          +103           103 renpy.display.minigame.__file__
+          +103           103 renpy.display.particle.__file__
+          +103           103 renpy.display.pgrender.__file__
+          +103           103 renpy.display.viewport.__file__
+          +103           103 renpy.sl2.slproperties.__file__
+          +104           104 renpy.angle.glblacklist.__file__
+          +104           104 renpy.display.imagelike.__file__
+          +104           104 renpy.display.presplash.__file__
+          +104           104 renpy.display.transform.__file__
           +104           104 renpy.gl.gltexture.SIZES
-          +104           104 renpy.translation.generation.__file__
+          +104           104 renpy.sl2.slparser.STYLE_PREFIXES
+          +104           104 renpy.translation.merge.__file__
           +105           105 renpy.config.variants
-          +105           105 renpy.translation.scanstrings.__file__
+          +105           105 renpy.display.controller.__file__
+          +105           105 renpy.display.transition.__file__
+          +105           105 renpy.sl2.sldisplayables.__file__
+          +105           105 renpy.styledata.__file__
+          +105           105 renpy.test.testexecution.__file__
+          +106           106 renpy.config.lint_ignore_replaces
+          +106           106 renpy.styledata.styleutil.__file__
+          +106           106 renpy.translation.extract.__file__
           +106           106 store.gui.END_REPLAY
           +106           106 store.gui.SLOW_SKIP
-          +108           108 renpy.gl.gl.__file__
+          +107           107 renpy.translation.__file__
+          +107           107 renpy.translation.dialogue.__file__
           +108           108 renpy.python.unicode_re
-          +108           108 renpy.style.__file__
-          +109           109 renpy.gl.gl1.__file__
+          +108           108 renpy.subprocess.__file__
+          +109           109 renpy.display.movetransition.__file__
+          +109           109 renpy.translation.generation.__file__
+          +110           110 renpy.translation.scanstrings.__file__
           +110           110 store.gui.DELETE_SAVE
-          +111           111 renpy.angle.gl.__file__
-          +112           112 renpy.gl.gldraw.__file__
-          +114           114 renpy.text.ftfont.__file__
-          +115           115 renpy.angle.gldraw.__file__
-          +115           115 renpy.gl.glrtt_fbo.__file__
-          +115           115 renpy.gl.gltexture.__file__
-          +115           115 renpy.text.texwrap.__file__
+          +113           113 renpy.gl.gl.__file__
+          +113           113 renpy.style.__file__
+          +114           114 renpy.gl.gl1.__file__
           +116           116 renpy.add_from.new_labels
+          +116           116 renpy.angle.gl.__file__
           +116           116 renpy.angle.gltexture.texture_numbers
-          +116           116 renpy.arguments.compile_commands
           +116           116 renpy.display.imagemap.cached
-          +116           116 renpy.gl.glrtt_copy.__file__
           +116           116 renpy.lint.imprecise_cache
           +116           116 renpy.lint.precise_cache
           +116           116 renpy.pyanalysis.local_constants
           +116           116 renpy.test.testexecution.labels
           +116           116 store.achievement.e
           +116           116 store.gui.OVERWRITE_SAVE
-          +117           117 renpy.display.render.__file__
-          +118           118 renpy.angle.glrtt_fbo.__file__
-          +118           118 renpy.angle.gltexture.__file__
-          +119           119 renpy.angle.glrtt_copy.__file__
-          +119           119 renpy.audio.renpysound.__file__
-          +119           119 renpy.text.textsupport.__file__
-          +121           121 renpy.gl.glenviron_fixed.__file__
-          +122           122 renpy.display.accelerator.__file__
-          +122           122 renpy.gl.glenviron_shader.__file__
-          +122           122 renpy.styledata.stylesets.__file__
-          +122           122 renpy.test.__path__
-          +123           123 renpy.gl.glenviron_limited.__file__
-          +123           123 renpy.styledata.styleclass.__file__
+          +117           117 renpy.gl.gldraw.__file__
+          +119           119 renpy.text.ftfont.__file__
+          +120           120 renpy.angle.gldraw.__file__
+          +120           120 renpy.gl.glrtt_fbo.__file__
+          +120           120 renpy.gl.gltexture.__file__
+          +120           120 renpy.text.texwrap.__file__
+          +121           121 renpy.gl.glrtt_copy.__file__
+          +122           122 renpy.display.render.__file__
+          +123           123 renpy.angle.glrtt_fbo.__file__
+          +123           123 renpy.angle.gltexture.__file__
+          +124           124 renpy.angle.glrtt_copy.__file__
+          +124           124 renpy.audio.renpysound.__file__
+          +124           124 renpy.text.textsupport.__file__
           +124           124 store.gui.FAST_SKIP_SEEN
-          +125           125 renpy.angle.glenviron_shader.__file__
-          +126           126 renpy.config.basedir
-          +126           126 store.basedir
-          +128           128 renpy.styledata.style_functions.__file__
+          +126           126 renpy.gl.glenviron_fixed.__file__
+          +127           127 renpy.display.accelerator.__file__
+          +127           127 renpy.gl.glenviron_shader.__file__
+          +127           127 renpy.styledata.stylesets.__file__
+          +127           127 renpy.test.__path__
+          +128           128 renpy.gl.glenviron_limited.__file__
+          +128           128 renpy.styledata.styleclass.__file__
           +128           128 store.x
-          +129           129 renpy.translation.__path__
-          +133           133 renpy.styledata.style_idle_functions.__file__
+          +130           130 renpy.angle.glenviron_shader.__file__
+          +133           133 renpy.styledata.style_functions.__file__
           +134           134 renpy.config.name
-          +134           134 renpy.styledata.style_hover_functions.__file__
+          +134           134 renpy.translation.__path__
           +135           135 renpy.parser.operator_regexp
-          +136           136 renpy.config.gamedir
+          +136           136 renpy.config.basedir
           +136           136 renpy.screenlang.childbearing_statements
-          +136           136 renpy.screenlang.position_property_names
-          +137           137 renpy.styledata.style_activate_functions.__file__
-          +137           137 renpy.styledata.style_selected_functions.__file__
+          +136           136 store.basedir
+          +138           138 renpy.styledata.style_idle_functions.__file__
+          +139           139 renpy.styledata.style_hover_functions.__file__
           +140           140 renpy.add_from.missing
           +140           140 renpy.angle.gl.__test__
           +140           140 renpy.angle.gldraw.__test__
@@ -980,13 +977,11 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +140           140 renpy.loadsave.newest_slot_cache
           +140           140 renpy.scriptedit.lines
           +140           140 renpy.session
-          +140           140 renpy.sl2.slproperties.position_property_names
           +140           140 renpy.style.__test__
           +140           140 renpy.styledata.style_activate_functions.__test__
           +140           140 renpy.styledata.style_functions.__test__
           +140           140 renpy.styledata.style_hover_functions.__test__
           +140           140 renpy.styledata.style_idle_functions.__test__
-          +140           140 renpy.styledata.style_insensitive_functions.__file__
           +140           140 renpy.styledata.style_insensitive_functions.__test__
           +140           140 renpy.styledata.style_selected_activate_functions.__test__
           +140           140 renpy.styledata.style_selected_functions.__test__
@@ -1006,80 +1001,86 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +140           140 store._m1_00stylepreferences__alternatives
           +140           140 store._m1_00stylepreferences__preferences
           +140           140 store.iap.products
-          +142           142 renpy.styledata.style_selected_idle_functions.__file__
-          +143           143 renpy.styledata.style_selected_hover_functions.__file__
-          +146           146 renpy.styledata.style_selected_activate_functions.__file__
-          +148           148 renpy.display.emulator.TV_KEYS
-          +149           149 renpy.styledata.style_selected_insensitive_functions.__file__
+          +142           142 renpy.styledata.style_activate_functions.__file__
+          +142           142 renpy.styledata.style_selected_functions.__file__
+          +144           144 renpy.arguments.compile_commands
+          +145           145 renpy.styledata.style_insensitive_functions.__file__
+          +146           146 renpy.config.gamedir
+          +147           147 renpy.styledata.style_selected_idle_functions.__file__
+          +148           148 renpy.styledata.style_selected_hover_functions.__file__
           +151           151 renpy.ast.EARLY_CONFIG
-          +152           152 renpy.config.commondir
+          +151           151 renpy.styledata.style_selected_activate_functions.__file__
+          +154           154 renpy.styledata.style_selected_insensitive_functions.__file__
           +156           156 store.gui.FAST_SKIP_UNSEEN
-          +156           156 store.updater.DEFERRED_UPDATE_LOG
+          +160           160 renpy.display.emulator.TV_KEYS
           +160           160 renpy.translation.generation.STRING_RE
           +160           160 store.build.documentation_patterns
+          +162           162 renpy.config.commondir
           +162           162 store.splash_message
           +162           162 store.splash_message_default
           +164           164 store.gui.LOADING
-          +166           166 store.updater.DEFERRED_UPDATE_FILE
-          +168           168 renpy.parser.original_filename
+          +166           166 store.updater.DEFERRED_UPDATE_LOG
           +172           172 renpy.atl.position
-          +172           172 renpy.character.NotSet
-          +172           172 renpy.config.gestures
           +172           172 renpy.display.gesture.recognizer
-          +172           172 renpy.display.render.Modal
           +172           172 renpy.exports.tag_quoting_dict
-          +172           172 renpy.loader.auto_blacklisted
-          +172           172 renpy.loadsave.unknown
           +172           172 renpy.python.deleted
           +172           172 renpy.python.wrap_node
-          +172           172 renpy.screenlang.many
-          +172           172 renpy.sl2.slast.NotGiven
-          +172           172 renpy.sl2.slast.use_expression
+          +172           172 renpy.screenlang.position_property_names
           +172           172 renpy.substitutions.formatter
           +172           172 renpy.translation.Default
-          +172           172 renpy.ui.NoStylePrefixGiven
           +176           176 renpy.config.language_callbacks
           +176           176 renpy.defaultstore._cache_pin_set
           +176           176 renpy.defaultstore._predict_set
           +176           176 renpy.display.im.ramp_cache
+          +176           176 renpy.sl2.slproperties.position_property_names
           +176           176 store._console.traced_expressions
           +176           176 store.consolehistory
           +176           176 store.nvl_list
+          +176           176 store.updater.DEFERRED_UPDATE_FILE
           +176           176 store.updater.checked
-          +180           180 renpy.sl2.slproperties.text_property_names
-          +185           185 renpy.config.autoreload_blacklist
-          +185           185 renpy.display.screen.phase_name
           +188           188 renpy.savelocation.disk_lock
-          +190           190 store._m1_00gltest__dxwebsetup
           +190           190 store.gui.MAIN_MENU
           +191           191 renpy.display.render.__pyx_capi__
-          +193           193 renpy.parser.ESCAPED_OPERATORS
+          +197           197 renpy.config.autoreload_blacklist
+          +197           197 renpy.display.screen.phase_name
+          +197           197 renpy.screenlang.many
           +197           197 store._m1_00stylepreferences__spdirty
+          +198           198 renpy.display.render.Modal
           +198           198 store.build.mac_codesign_command
+          +199           199 renpy.character.NotSet
           +200           200 renpy.config.quit_action
+          +200           200 renpy.loadsave.unknown
+          +200           200 store._m1_00gltest__dxwebsetup
           +200           200 store.m_poemappeal
           +200           200 store.n_poemappeal
           +200           200 store.s_poemappeal
           +200           200 store.y_poemappeal
+          +201           201 renpy.sl2.slast.NotGiven
           +202           202 renpy.config.archives
           +204           204 renpy.config.auto_channels
+          +205           205 renpy.parser.ESCAPED_OPERATORS
           +206           206 renpy.display.module.bo32
+          +207           207 renpy.sl2.slast.use_expression
+          +208           208 renpy.config.gestures
+          +209           209 renpy.loader.auto_blacklisted
           +210           210 renpy.config.replay_scope
           +211           211 renpy.style.__pyx_capi__
+          +211           211 renpy.ui.NoStylePrefixGiven
           +212           212 renpy.gl.gltexture.__pyx_capi__
           +214           214 renpy.display.pgrender.safe_formats
           +214           214 renpy.test.testast._test
           +216           216 store.splash_messages
           +220           220 renpy.pyanalysis.always_constants
-          +224           224 renpy.ui.stack
+          +220           220 renpy.sl2.slproperties.text_property_names
           +229           229 renpy.object.__warningregistry__
           +230           230 renpy.python.__warningregistry__
           +238           238 store.poemwinner
           +244           244 store.build.archives
-          +248           248 renpy.display.gesture.DIRECTIONS
           +250           250 store.define
+          +254           254 renpy.ui.stack
           +260           260 renpy.gl.gldraw.flip_times
           +260           260 renpy.gl.gldraw.frame_times
+          +264           264 renpy.display.gesture.DIRECTIONS
           +266           266 renpy.config.layers
           +268           268 renpy.parser.lllword
           +270           270 store.build.mac_codesign_dmg_command
@@ -1087,31 +1088,24 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +280           280 renpy.defaultstore._predict_screen
           +280           280 store._predict_screen
           +282           282 store.dismiss_keys
+          +284           284 renpy.display.core.print_function
           +284           284 renpy.pyanalysis.absolute_import
           +284           284 renpy.pyanalysis.division
           +284           284 renpy.pyanalysis.unicode_literals
-          +292           292 renpy.log.log_cache
+          +284           284 renpy.test.testkey.unicode_literals
           +294           294 renpy.angle.gltexture.__pyx_capi__
           +295           295 renpy.angle.glenviron_shader.BLIT_SHADER
           +295           295 renpy.gl.glenviron_shader.BLIT_SHADER
-          +298           298 store._last_raw_what
           +300           300 store.build.late_base_patterns
           +301           301 renpy.angle.glenviron_shader.VERTEX_SHADER1
           +301           301 renpy.gl.glenviron_shader.VERTEX_SHADER1
           +304           304 renpy.translation.scanstrings.STRING_RE
-          +312           312 renpy.config.side_image_null
-          +312           312 renpy.sl2.slast.NO_DISPLAYABLE
           +312           312 store.gui._null
           +317           317 renpy.styledata.styleutil.ANCHORS
-          +325           325 renpy.__path__
-          +334           334 renpy.gl.__path__
-          +337           337 renpy.sl2.__path__
           +338           338 renpy.config.font_replacement_map
-          +340           340 renpy.text.__path__
-          +343           343 renpy.angle.__path__
-          +343           343 renpy.audio.__path__
+          +340           340 renpy.__path__
+          +343           343 renpy.sl2.slast.NO_DISPLAYABLE
           +344           344 renpy.defaultstore.Alpha
-          +344           344 renpy.defaultstore.Dissolve
           +344           344 renpy.defaultstore.FactorZoom
           +344           344 renpy.defaultstore.MoveFactory
           +344           344 renpy.defaultstore.MoveIn
@@ -1144,8 +1138,11 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +344           344 store.moveoutbottom
           +344           344 store.moveoutleft
           +344           344 store.moveoutright
-          +349           349 renpy.display.__path__
-          +355           355 renpy.styledata.__path__
+          +349           349 renpy.gl.__path__
+          +352           352 renpy.sl2.__path__
+          +355           355 renpy.text.__path__
+          +358           358 renpy.angle.__path__
+          +358           358 renpy.audio.__path__
           +360           360 renpy.config.enter_transition
           +360           360 renpy.config.exit_transition
           +360           360 renpy.config.window_hide_transition
@@ -1155,19 +1152,20 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +360           360 store.dissolve_scene
           +360           360 store.tpause
           +364           364 renpy.config.show_menu_enable
+          +364           364 renpy.display.__path__
           +364           364 store.pixellate
-          +368           368 store.fade
+          +370           370 renpy.styledata.__path__
           +372           372 renpy.character.TAG_RE
           +372           372 renpy.display.screen.updated_screens
           +372           372 renpy.python.initialized_store_dicts
           +372           372 renpy.sl2.slparser.childbearing_statements
-          +374           374 renpy.screenlang.STYLE_PREFIXES
-          +375           375 store.me
           +377           377 renpy.print_function
           +378           378 store._console._defaults_set
           +380           380 store.easeinbottom
+          +380           380 store.me
           +390           390 renpy.angle.glenviron_shader.VERTEX_SHADER2
           +390           390 renpy.gl.glenviron_shader.VERTEX_SHADER2
+          +402           402 renpy.screenlang.STYLE_PREFIXES
           +402           402 store.irisin
           +402           402 store.pushup
           +402           402 store.wipeup
@@ -1235,18 +1233,14 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +479           479 renpy.angle.glenviron_shader.VERTEX_SHADER3
           +479           479 renpy.gl.glenviron_shader.VERTEX_SHADER3
           +486           486 store.build.mac_create_dmg_command
-          +495           495 store.hpunch
           +498           498 store._weekday_name_long
-          +512           512 store.moveouttop
           +518           518 store.poem_n1
           +524           524 renpy.python.store_modules
           +524           524 store._weekday_name_short
           +530           530 renpy.exports.license
           +542           542 renpy.angle.glenviron_shader.BLEND_CLIP_SHADER
           +542           542 renpy.gl.glenviron_shader.BLEND_CLIP_SHADER
-          +542           542 renpy.parser.OPERATORS
           +556           556 renpy.display.ic_log
-          +556           556 renpy.display.screen.profile_log
           +556           556 store.gui.bar_borders
           +556           556 store.gui.button_borders
           +556           556 store.gui.check_button_borders
@@ -1261,18 +1255,19 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +556           556 store.gui.skip_frame_borders
           +556           556 store.gui.slider_borders
           +556           556 store.gui.slot_button_borders
-          +556           556 store.gui.tutorial_button_borders
           +556           556 store.gui.vbar_borders
           +556           556 store.gui.vscrollbar_borders
           +556           556 store.gui.vslider_borders
           +571           571 renpy.defaultstore.Pause
           +574           574 renpy.defaultstore.Grid
+          +574           574 renpy.parser.OPERATORS
           +590           590 renpy.display.swdraw.rle_cache
-          +595           595 renpy.defaultstore.Fixed
-          +611           611 renpy.subprocess.__all__
+          +591           591 renpy.display.screen.profile_log
           +620           620 renpy.angle.glenviron_shader.IMAGEBLEND_SHADER
           +620           620 renpy.gl.glenviron_shader.IMAGEBLEND_SHADER
+          +621           621 renpy.defaultstore.Fixed
           +625           625 renpy.defaultstore.Position
+          +636           636 renpy.subprocess.__all__
           +664           664 renpy.atl.RawChild
           +664           664 renpy.atl.RawContainsExpr
           +664           664 renpy.atl.RawEvent
@@ -1314,25 +1309,16 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +668           668 renpy.atl.Repeat
           +668           668 renpy.atl.Time
           +668           668 renpy.display.layout.Alpha
-          +668           668 renpy.test.testast.Click
           +668           668 renpy.test.testast.Move
           +668           668 store._CopyFile
           +668           668 store._EditFile
           +668           668 store._m1__errorhandling__XScrollValue
           +668           668 store._m1__errorhandling__YScrollValue
-          +670           670 renpy.translation.scanstrings.REGULAR_PRIORITIES
           +671           671 renpy.display.to_log
           +672           672 renpy.display.im.ZipFileImage
           +672           672 renpy.display.layout.AdjustTimes
-          +672           672 renpy.display.layout.Position
           +672           672 renpy.display.layout.SizeZoom
           +672           672 renpy.display.layout.Zoom
-          +672           672 renpy.display.transition.AlphaDissolve
-          +672           672 renpy.display.transition.CropMove
-          +672           672 renpy.display.transition.NoTransition
-          +672           672 renpy.display.transition.Pixellate
-          +672           672 renpy.display.transition.PushMove
-          +674           674 renpy.sl2.slproperties.property_groups
           +674           674 store.gui.scrollbar_borders
           +676           676 renpy.display.viewport.VPGrid
           +676           676 renpy.exports.Container
@@ -1340,15 +1326,16 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +676           676 store.AnimatedMask
           +676           676 store.Invert
           +676           676 store.Tear
+          +676           676 store._console.TracedExpressionsList
           +676           676 store._gamepad.EventWatcher
+          +682           682 renpy.translation.scanstrings.REGULAR_PRIORITIES
           +684           684 renpy.display.motion.ATLTransform
           +690           690 store._m1_00gallery__GalleryAllPriorCondition
           +691           691 renpy.exports.curried_call_in_new_context
           +694           694 renpy.atl.On
           +694           694 renpy.display.anim.Blink
-          +696           696 renpy.display.transform.null
+          +695           695 renpy.test.testast.Click
           +696           696 renpy.ui.add
-          +696           696 renpy.ui.bar
           +696           696 renpy.ui.button
           +696           696 renpy.ui.fixed
           +696           696 renpy.ui.image
@@ -1356,10 +1343,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +696           696 renpy.ui.key
           +696           696 renpy.ui.keymap
           +696           696 renpy.ui.label
-          +696           696 renpy.ui.mousearea
           +696           696 renpy.ui.transform
-          +696           696 renpy.ui.vbar
-          +696           696 renpy.ui.window
           +697           697 store._m1_00gallery__GalleryImage
           +698           698 renpy.atl.RawTime
           +698           698 renpy.screenlang.LineNumberNormalizer
@@ -1378,28 +1362,30 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +700           700 renpy.sl2.slparser.ScreenParser
           +700           700 renpy.sl2.slparser.TranscludeParser
           +700           700 renpy.sl2.slparser.UseParser
+          +703           703 renpy.sl2.slproperties.property_groups
           +704           704 renpy.loadsave.SaveAbort
           +704           704 renpy.parser.ParseError
           +707           707 renpy.display.layout.FactorZoom
-          +712           712 store._console.TracedExpressionsList
-          +719           719 renpy.ui.input
           +719           719 renpy.ui.on
+          +720           720 renpy.ui.bar
           +720           720 renpy.ui.text
-          +720           720 store.adj
+          +721           721 renpy.display.transform.null
           +721           721 renpy.ui.drag
           +721           721 renpy.ui.grid
-          +721           721 renpy.ui.hbox
           +721           721 renpy.ui.null
           +721           721 renpy.ui.side
+          +721           721 renpy.ui.vbar
           +721           721 renpy.ui.vbox
           +722           722 renpy.ui.frame
           +722           722 renpy.ui.sizer
           +722           722 renpy.ui.timer
           +723           723 renpy.ui.hotbar
           +723           723 renpy.ui.slider
+          +723           723 renpy.ui.window
           +724           724 renpy.ui.autobar
           +724           724 renpy.ui.vslider
           +726           726 renpy.ui.draggroup
+          +726           726 renpy.ui.mousearea
           +726           726 renpy.ui.scrollbar
           +727           727 renpy.ui.textbutton
           +727           727 renpy.ui.vscrollbar
@@ -1416,11 +1402,14 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +740           740 renpy.display.behavior.RollForward
           +744           744 renpy.text.font.ScaledImageFont
           +746           746 renpy.display.swdraw.clippers
+          +747           747 renpy.ui.input
           +748           748 renpy.display.screen.ScreenProfile
           +748           748 renpy.ui.Detached
+          +749           749 renpy.config.side_image_null
           +750           750 renpy.display.imagemap.ImageCacheCrop
           +751           751 renpy.ui._vpgrid
           +752           752 renpy.execution.PredictInfo
+          +752           752 renpy.ui.hbox
           +755           755 renpy.ui._viewport
           +757           757 renpy.display.behavior.ImageButton
           +757           757 renpy.display.imagemap.ImageMapCrop
@@ -1431,14 +1420,12 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +768           768 renpy.persistent.registry
           +772           772 renpy.exports.MenuEntry
           +774           774 store.zoomin
-          +774           774 store.zoomout
           +776           776 renpy.defaultstore.absolute
           +778           778 renpy.test.testast.If
           +782           782 renpy.config.console_commands
           +782           782 renpy.display.transition.Transition
           +783           783 renpy.display.anim.TransitionAnimation
           +784           784 renpy.audio.audio.QueueEntry
-          +785           785 store._voice
           +788           788 store._console.ScriptErrorHandler
           +790           790 renpy.display.behavior.TimerState
           +790           790 renpy.test.testexecution.TestJump
@@ -1448,6 +1435,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +800           800 store.iap.Product
           +806           806 store._console.HistoryEntry
           +808           808 renpy.character.HistoryEntry
+          +809           809 store._voice
           +810           810 renpy.display.layout.IgnoreLayers
           +810           810 store._console.BoundedList
           +811           811 renpy.display.screen.Screen
@@ -1461,7 +1449,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +822           822 renpy.script.ScriptError
           +822           822 store.updater.UpdateError
           +826           826 renpy.display.behavior.PauseBehavior
-          +826           826 store.wordfile
           +827           827 renpy.object.sentinels
           +828           828 renpy.game.RestartTopContext
           +832           832 renpy.game.RestartContext
@@ -1483,9 +1470,9 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +857           857 renpy.display.screen.ScreenCache
           +860           860 renpy.game.JumpOutException
           +862           862 store.With
+          +863           863 store.wordfile
           +864           864 renpy.display.behavior.Timer
           +864           864 renpy.display.transition.Dissolve
-          +864           864 renpy.display.transition.MultipleTransition
           +864           864 renpy.styledata.stylesets.prefix_search
           +866           866 renpy.character.DialogueTextTags
           +868           868 renpy.display.core.EndInteraction
@@ -1501,8 +1488,9 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +896           896 store.Notify
           +898           898 renpy.arguments.commands
           +899           899 renpy.defaultstore.ComposeTransition
+          +899           899 renpy.display.transition.NoTransition
           +899           899 renpy.game.JumpException
-          +900           900 renpy.display.layout.Motion
+          +900           900 store.VoiceInfo
           +906           906 store.poem_m4
           +907           907 renpy.display.behavior.Keymap
           +908           908 store.QueueEvent
@@ -1526,23 +1514,26 @@ Memory diff at Thu Jul 12 00:50:36 2018:
           +949           949 renpy.defaultstore._Config
           +952           952 renpy.game.Persistent
           +953           953 renpy.atl.RawStatement
+          +953           953 renpy.display.layout.Position
           +958           958 store.build.xbit_patterns
           +974           974 renpy.defaultstore.Fade
           +978           978 renpy.subprocess.CalledProcessError
-          +980           980 renpy.loader.auto_lock
           +984           984 renpy.sl2.sldisplayables.ShowIf
           +988           988 store.FilePage
           +990           990 store.FieldEquality
           +992           992 store.achievement.Sync
+          +998           998 store.fade
         +1,000         1,000 store.updater.Update
         +1,006         1,006 renpy.backup_blacklist
         +1,006         1,006 store.Rollback
         +1,010         1,010 renpy.defaultstore.NoRollback
         +1,012         1,012 renpy.ast.Show
+        +1,012         1,012 renpy.loader.auto_lock
         +1,012         1,012 renpy.savelocation.scan_thread_condition
         +1,012         1,012 renpy.test.testast.Node
         +1,020         1,020 renpy.game.QuitException
         +1,020         1,020 store.RollForward
+        +1,021         1,021 renpy.defaultstore.Dissolve
         +1,021         1,021 renpy.display.text.DisplayableSegment
         +1,021         1,021 renpy.display.text.SpaceSegment
         +1,021         1,021 renpy.exports.loaded_modules
@@ -1576,7 +1567,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,059         1,059 renpy.defaultstore.Null
         +1,062         1,062 store._InputValueAction
         +1,064         1,064 store._m1_00preferences__DisplayAction
-        +1,067         1,067 renpy.ast.Hide
         +1,067         1,067 renpy.loadsave.Cache
         +1,068         1,068 store.NullAction
         +1,069         1,069 renpy.ui.Imagemap
@@ -1586,19 +1576,18 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,084         1,084 renpy.sl2.sldisplayables.DisplayableParser
         +1,084         1,084 store.DisableAllInputValues
         +1,085         1,085 renpy.display.behavior.MouseArea
-        +1,086         1,086 renpy.display.transition.ImageDissolve
         +1,088         1,088 store.zoominout
         +1,089         1,089 renpy.config.end_game_transition
         +1,089         1,089 renpy.display.im.Recolor
         +1,090         1,090 store._m1_developer__ImageLocationPicker
         +1,092         1,092 renpy.ast.With
         +1,092         1,092 renpy.name_blacklist
-        +1,092         1,092 renpy.screenlang.ui_properties
         +1,092         1,092 store._m1_00musicroom__MusicRoomStop
+        +1,095         1,095 renpy.ast.Hide
         +1,097         1,097 renpy.test.testast.Type
         +1,102         1,102 store._m1_00musicroom__MusicRoomTogglePlay
+        +1,104         1,104 renpy.screenlang.ui_properties
         +1,116         1,116 renpy.ast.StoreNamespace
-        +1,116         1,116 renpy.character.SlowDone
         +1,116         1,116 renpy.display.behavior.HoveredProxy
         +1,116         1,116 renpy.display.focus.Focus
         +1,116         1,116 renpy.display.im.Crop
@@ -1609,7 +1598,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,116         1,116 renpy.python.StoreProxy
         +1,116         1,116 renpy.substitutions.MultipleDict
         +1,116         1,116 renpy.text.font.ImageFont
-        +1,116         1,116 renpy.ui.Addable
         +1,116         1,116 store.StaticValue
         +1,116         1,116 store._m1_00gltest__GLTest
         +1,118         1,118 store.SetVoiceMute
@@ -1621,10 +1609,11 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,135         1,135 renpy.screenlang.ScreenLangScreen
         +1,138         1,138 store.Hide
         +1,140         1,140 renpy.display.im.Map
-        +1,145         1,145 renpy.loader.RenpyImporter
+        +1,142         1,142 renpy.character.SlowDone
         +1,146         1,146 renpy.display.im.Tile
         +1,146         1,146 store.PauseAudio
         +1,149         1,149 renpy.audio.audio.MusicContext
+        +1,149         1,149 renpy.ui.Addable
         +1,151         1,151 renpy.display.layout.MultiBox
         +1,152         1,152 renpy.exports.TagQuotingDict
         +1,152         1,152 renpy.sl2.slast.ScreenCache
@@ -1634,38 +1623,37 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,156         1,156 store.Stop
         +1,156         1,156 store._m1_00gallery__GalleryToggleSlideshow
         +1,161         1,161 store.InputValue
-        +1,162         1,162 renpy.screenlang.text_property_names
-        +1,168         1,168 renpy.memory.memory_log
         +1,170         1,170 renpy.display.im.Flip
         +1,170         1,170 store.poem_n2b
+        +1,171         1,171 renpy.ast.Screen
         +1,171         1,171 renpy.translation.StringTranslator
-        +1,172         1,172 renpy.ast.If
+        +1,172         1,172 renpy.display.transition.Pixellate
         +1,174         1,174 renpy.curry.Curry
         +1,175         1,175 renpy.display.im.ImageBase
+        +1,175         1,175 renpy.loader.RenpyImporter
         +1,179         1,179 renpy.atl.Context
         +1,181         1,181 renpy.ast.ArgumentInfo
         +1,183         1,183 renpy.scriptedit.Line
         +1,183         1,183 renpy.translation.dialogue.DialogueFile
         +1,187         1,187 renpy.lint.Count
-        +1,196         1,196 store._m1_00action_other__TooltipAction
+        +1,195         1,195 renpy.memory.memory_log
         +1,200         1,200 renpy.screenlang.FunctionStatementParser
+        +1,202         1,202 renpy.screenlang.text_property_names
         +1,202         1,202 store.FileTakeScreenshot
         +1,203         1,203 renpy.defaultstore.AlphaDissolve
-        +1,204         1,204 renpy.ast.Testcase
         +1,204         1,204 renpy.display.anim.Edge
         +1,204         1,204 renpy.display.im.Scale
         +1,208         1,208 renpy.defaultstore.Flatten
         +1,212         1,212 renpy.translation.Restructurer
         +1,212         1,212 store.iap.AndroidBackend
-        +1,214         1,214 renpy.text.extras.text_tags
         +1,214         1,214 store.PlayCharacterVoice
         +1,218         1,218 store.iap.IOSBackend
-        +1,219         1,219 renpy.defaultstore.Viewport
         +1,220         1,220 store.iap.NoneBackend
-        +1,226         1,226 renpy.game.seen_session
         +1,226         1,226 store._console.DebugConsole
+        +1,226         1,226 store._m1_00action_other__TooltipAction
         +1,227         1,227 renpy.sl2.slast.SLIf
         +1,228         1,228 store.icon.Icon
+        +1,229         1,229 renpy.ast.Testcase
         +1,230         1,230 renpy.display.core.MouseMove
         +1,231         1,231 renpy.ast.Jump
         +1,231         1,231 renpy.screenlang.Style
@@ -1676,8 +1664,8 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,236         1,236 renpy.sl2.sldisplayables.Positional
         +1,238         1,238 store.FileDelete
         +1,238         1,238 store.Quit
-        +1,239         1,239 renpy.ast.Screen
         +1,239         1,239 renpy.sl2.slast.SLFor
+        +1,240         1,240 renpy.ast.If
         +1,240         1,240 renpy.ast.Return
         +1,240         1,240 renpy.screenlang.PrefixStyle
         +1,240         1,240 renpy.sl2.sldisplayables.PrefixStyle
@@ -1688,6 +1676,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,245         1,245 renpy.pyanalysis.CompilerCache
         +1,246         1,246 renpy.parser.ParseTrie
         +1,248         1,248 renpy.display.text.DrawInfo
+        +1,249         1,249 renpy.defaultstore.Viewport
         +1,250         1,250 renpy.defaultstore._layout_class
         +1,253         1,253 renpy.display.im.Twocolor
         +1,255         1,255 renpy.ast.ParameterInfo
@@ -1701,7 +1690,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,282         1,282 store.Queue
         +1,283         1,283 renpy.ast.TranslateBlock
         +1,286         1,286 renpy.translation.scanstrings.String
-        +1,290         1,290 renpy.ast.Menu
         +1,291         1,291 renpy.display.swdraw.Clipper
         +1,294         1,294 store.achievement.Backend
         +1,296         1,296 renpy.defaultstore.SpriteManager
@@ -1715,37 +1703,38 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,313         1,313 renpy.defaultstore.Particles
         +1,313         1,313 renpy.object.Sentinel
         +1,315         1,315 renpy.atl.RawMultipurpose
-        +1,317         1,317 renpy.ast.Python
         +1,318         1,318 renpy.ast.Scry
         +1,318         1,318 store.ToggleMute
         +1,319         1,319 renpy.display.im.FactorScale
-        +1,320         1,320 store.VoiceInfo
         +1,322         1,322 renpy.config.joystick_keys
         +1,323         1,323 renpy.ast.PyExpr
         +1,324         1,324 renpy.game.Preferences
         +1,328         1,328 store.StylePreference
+        +1,330         1,330 renpy.ast.Init
         +1,330         1,330 store.Start
         +1,331         1,331 renpy.game.ExceptionInfo
         +1,332         1,332 renpy.display.layout.Interpolate
         +1,336         1,336 renpy.screenlang.Parser
         +1,337         1,337 renpy.defaultstore.Window
         +1,339         1,339 renpy.defaultstore.AlphaMask
-        +1,343         1,343 renpy.ast.Call
+        +1,341         1,341 renpy.ast.Menu
         +1,344         1,344 store.SetScreenVariable
         +1,347         1,347 renpy.defaultstore.Action
         +1,349         1,349 store.AudioPositionValue
         +1,352         1,352 store.SetMixer
         +1,352         1,352 store.achievement.SteamBackend
-        +1,361         1,361 renpy.ast.Default
+        +1,355         1,355 renpy.display.transition.PushMove
         +1,362         1,362 renpy.defaultstore.MultipleTransition
-        +1,364         1,364 renpy.ast.Init
         +1,375         1,375 renpy.defaultstore.Move
         +1,378         1,378 renpy.loadsave.SaveRecord
         +1,379         1,379 renpy.sl2.slast.SLDisplayable
         +1,379         1,379 store.Placeholder
         +1,380         1,380 store.MouseMove
+        +1,385         1,385 renpy.ast.Python
         +1,387         1,387 renpy.defaultstore.Bar
-        +1,392         1,392 renpy.display.core.enabled_events
+        +1,400         1,400 renpy.game.seen_session
+        +1,404         1,404 renpy.ast.Call
+        +1,404         1,404 renpy.log.log_cache
         +1,404         1,404 renpy.sl2.slast.SLBlock
         +1,405         1,405 renpy.display.im.AlphaMask
         +1,405         1,405 renpy.gl.gl1.__pyx_capi__
@@ -1755,36 +1744,39 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,424         1,424 store.MixerValue
         +1,426         1,426 store._m1_00musicroom__MusicRoomPlay
         +1,428         1,428 renpy.display.im.Cache
-        +1,432         1,432 renpy.display.layout.Side
+        +1,429         1,429 renpy.ast.Default
         +1,434         1,434 store.RemoveFromSet
-        +1,437         1,437 renpy.ast.UserStatement
         +1,438         1,438 store.Language
-        +1,444         1,444 renpy.sl2.slproperties.ui_properties
         +1,445         1,445 renpy.display.text.Layout
         +1,446         1,446 store.YScrollValue
         +1,449         1,449 renpy.exports.register_sl_statement
         +1,450         1,450 store.XScrollValue
         +1,451         1,451 renpy.display.log
+        +1,455         1,455 renpy.display.layout.Side
         +1,456         1,456 store.SelectedIf
+        +1,460         1,460 renpy.sl2.slproperties.ui_properties
         +1,462         1,462 store.SensitiveIf
         +1,472         1,472 store.Show
         +1,474         1,474 store._SplineInterpolator
         +1,484         1,484 store.trueblack
         +1,488         1,488 renpy.display.focus.default_focus
         +1,492         1,492 store.close_eyes
+        +1,501         1,501 renpy.savelocation.scan_thread
         +1,504         1,504 store.Replay
+        +1,505         1,505 renpy.ast.UserStatement
         +1,524         1,524 store.RestartStatement
+        +1,526         1,526 store.hpunch
+        +1,531         1,531 renpy.display.transition.AlphaDissolve
         +1,531         1,531 renpy.text.ftfont.FreetypeError
-        +1,538         1,538 renpy.ast.Label
         +1,544         1,544 renpy.config.underlay
         +1,550         1,550 store.AddToSet
+        +1,551         1,551 renpy.python.CompressedList
         +1,555         1,555 renpy.display.core.ImagePredictInfo
         +1,564         1,564 renpy.defaultstore.object
         +1,569         1,569 renpy.pyanalysis.DeltaSet
         +1,570         1,570 store.SetField
         +1,582         1,582 renpy.savelocation.FileLocation
         +1,583         1,583 renpy.display.anim.SMAnimation
-        +1,587         1,587 renpy.python.CompressedList
         +1,594         1,594 renpy.defaultstore.Pan
         +1,594         1,594 store.FilePageNext
         +1,596         1,596 renpy.atl.ATLTransformBase
@@ -1794,55 +1786,59 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,612         1,612 store.poemy1
         +1,618         1,618 renpy.defaultstore.Sprite
         +1,621         1,621 renpy.display.gesture.GestureRecognizer
+        +1,624         1,624 renpy.display.core.enabled_events
         +1,632         1,632 renpy.pyanalysis.Control
         +1,638         1,638 renpy.defaultstore.DragGroup
-        +1,640         1,640 renpy.pyanalysis.Analysis
-        +1,648         1,648 renpy.ast.Scene
         +1,652         1,652 store.SetMute
-        +1,653         1,653 renpy.parser.KEYWORDS
         +1,660         1,660 store.poems1
         +1,666         1,666 renpy.loader.SubFile
+        +1,667         1,667 renpy.pyanalysis.Analysis
         +1,668         1,668 renpy.sl2.slast.SLNode
         +1,672         1,672 renpy.defaultstore.MoveTransition
-        +1,676         1,676 renpy.ast.Define
         +1,676         1,676 renpy.ast.EarlyPython
-        +1,676         1,676 renpy.ast.ShowLayer
-        +1,676         1,676 renpy.display.behavior.event_cache
         +1,676         1,676 renpy.display.screen.screens
+        +1,678         1,678 renpy.parser.KEYWORDS
         +1,688         1,688 store.Return
+        +1,690         1,690 renpy.ast.Label
         +1,690         1,690 store.iap.Purchase
         +1,698         1,698 store.ToggleScreenVariable
-        +1,699         1,699 renpy.defaultstore.Input
+        +1,702         1,702 renpy.ast.ShowLayer
         +1,704         1,704 store.DictInputValue
-        +1,722         1,722 renpy.display.screen.ScreenDisplayable
+        +1,716         1,716 renpy.ast.Scene
         +1,728         1,728 renpy.style.prefix_priority
+        +1,728         1,728 renpy.styledata.stylesets.prefix_priority
         +1,728         1,728 store.FilePagePrevious
+        +1,744         1,744 renpy.ast.Define
         +1,744         1,744 renpy.ast.Image
-        +1,744         1,744 store.items
-        +1,750         1,750 renpy.display.core.ALL_EVENTS
         +1,775         1,775 renpy.defaultstore.DynamicImage
+        +1,780         1,780 renpy.display.screen.ScreenDisplayable
         +1,780         1,780 store.nvl
+        +1,782         1,782 renpy.display.core.ALL_EVENTS
         +1,782         1,782 store.ToggleDict
         +1,786         1,786 renpy.display.pgrender.Surface
         +1,788         1,788 renpy.defaultstore.ParameterizedText
         +1,791         1,791 renpy.sl2.slast.SLScreen
         +1,798         1,798 renpy.defaultstore.list
+        +1,808         1,808 renpy.display.behavior.event_cache
         +1,809         1,809 renpy.defaultstore.ImageReference
         +1,812         1,812 store.nvl_narrator
-        +1,820         1,820 renpy.screenlang.box_properties
-        +1,828         1,828 store._narrator
+        +1,824         1,824 renpy.screenlang.box_properties
         +1,834         1,834 store.vcentered
         +1,836         1,836 store.dissolve_scene_half
-        +1,844         1,844 store.Skip
+        +1,839         1,839 renpy.defaultstore.Input
+        +1,840         1,840 store.moveouttop
         +1,849         1,849 renpy.ast.TranslateString
-        +1,850         1,850 renpy.defaultstore.Button
         +1,856         1,856 store.FieldInputValue
+        +1,863         1,863 renpy.display.layout.Motion
         +1,864         1,864 store.ToggleField
+        +1,869         1,869 store.Skip
         +1,870         1,870 store.poem_n3b
         +1,872         1,872 store.ScreenVariableInputValue
         +1,882         1,882 renpy.config.main_menu
+        +1,882         1,882 renpy.display.transition.MultipleTransition
         +1,887         1,887 store.VariableInputValue
         +1,888         1,888 store.centered
+        +1,890         1,890 renpy.loadsave.autosave_not_running
         +1,890         1,890 store.blinds
         +1,892         1,892 store.squares
         +1,899         1,899 renpy.display.im.MatrixColor
@@ -1851,19 +1847,20 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +1,915         1,915 renpy.ast.Translate
         +1,931         1,931 renpy.game.args
         +1,931         1,931 renpy.ui.ChoiceReturn
-        +1,932         1,932 renpy.loadsave.autosave_not_running
         +1,948         1,948 store.Help
         +1,954         1,954 renpy.savelocation.MultiLocation
         +1,970         1,970 store.ToggleSetMembership
+        +1,971         1,971 renpy.defaultstore.Button
         +1,973         1,973 renpy.defaultstore.ImageDissolve
+        +1,982         1,982 renpy.text.extras.text_tags
+        +1,982         1,982 store._narrator
         +1,990         1,990 renpy.subprocess.Popen
-        +2,024         2,024 renpy.translation.scanstrings.COMMON_PRIORITIES
+        +2,030         2,030 renpy.ast.Style
         +2,032         2,032 store.poem_y3
         +2,043         2,043 renpy.defaultstore.Borders
         +2,048         2,048 renpy.screenlang.i
-        +2,048         2,048 renpy.screenlang.screen_parser
+        +2,052         2,052 renpy.translation.scanstrings.COMMON_PRIORITIES
         +2,062         2,062 store.AnimatedValue
-        +2,071         2,071 renpy.ast.Style
         +2,088         2,088 store.FileLoad
         +2,099         2,099 renpy.ast.Transform
         +2,106         2,106 store.Confirm
@@ -1873,9 +1870,9 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +2,157         2,157 renpy.ast.Node
         +2,157         2,157 store.poem_y3b
         +2,163         2,163 renpy.display.layout.Container
-        +2,164         2,164 renpy.sl2.sldisplayables.box_properties
         +2,174         2,174 store.poem_n2
         +2,175         2,175 store.Function
+        +2,176         2,176 renpy.sl2.sldisplayables.box_properties
         +2,188         2,188 store.dissolve_scene_full
         +2,192         2,192 store.narrator
         +2,216         2,216 renpy.display.behavior.Adjustment
@@ -1884,7 +1881,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +2,258         2,258 store.mc
         +2,259         2,259 renpy.substitutions.Formatter
         +2,266         2,266 store.ny
-        +2,274         2,274 renpy.gl.gltexture.texture_numbers
         +2,286         2,286 store.wipeleft_scene
         +2,292         2,292 store.y
         +2,296         2,296 store.m
@@ -1902,31 +1898,34 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +2,479         2,479 renpy.display.render.blit_lock
         +2,498         2,498 store.FileSave
         +2,501         2,501 renpy.audio.audio.Channel
+        +2,554         2,554 renpy.screenlang.screen_parser
         +2,565         2,565 renpy.gl.glrtt_fbo.FboRtt
         +2,566         2,566 renpy.gl.glrtt_copy.CopyRtt
         +2,566         2,566 store.poem_y2
         +2,592         2,592 store.poem_m3
-        +2,595         2,595 renpy.defaultstore.adv
         +2,598         2,598 renpy.config.special_namespaces
+        +2,612         2,612 renpy.styledata.stylesets.prefix_alts
         +2,636         2,636 store.Play
-        +2,676         2,676 renpy.sl2.sldisplayables.button_properties
         +2,688         2,688 renpy.atl.warpers
-        +2,689         2,689 renpy.style.prefix_alts
-        +2,706         2,706 renpy.text.textsupport.CLASSES
+        +2,704         2,704 renpy.sl2.sldisplayables.button_properties
         +2,706         2,706 store.ShowMenu
+        +2,707         2,707 renpy.defaultstore.adv
+        +2,715         2,715 renpy.display.transition.ImageDissolve
+        +2,718         2,718 renpy.text.textsupport.CLASSES
         +2,726         2,726 store.poem_y22
         +2,740         2,740 renpy.display.im.matrix
-        +2,758         2,758 renpy.atl.is_constant_expr
         +2,765         2,765 renpy.exports.random
+        +2,770         2,770 renpy.atl.is_constant_expr
+        +2,772         2,772 renpy.display.screen.sorted_screens
+        +2,785         2,785 renpy.style.prefix_alts
         +2,788         2,788 renpy.display.pgrender.image_load_lock
         +2,796         2,796 renpy.angle.glrtt_fbo.FboRtt
         +2,799         2,799 renpy.angle.glrtt_copy.CopyRtt
         +2,804         2,804 renpy.gl.gl.__pyx_capi__
         +2,811         2,811 renpy.execution.Context
-        +2,828         2,828 renpy.display.screen.sorted_screens
+        +2,873         2,873 store.zoomout
         +2,946         2,946 store.poem_n23
         +3,000         3,000 store.ScreenVariableValue
-        +3,048         3,048 renpy.config.game_menu
         +3,048         3,048 store.DictValue
         +3,060         3,060 renpy.screenlang.bar_properties
         +3,080         3,080 store.build.base_patterns
@@ -1934,36 +1933,39 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +3,124         3,124 renpy.script.Script
         +3,154         3,154 renpy.python.WrapNode
         +3,154         3,154 store.FieldValue
-        +3,232         3,232 renpy.screenlang.window_properties
-        +3,232         3,232 renpy.sl2.sldisplayables.bar_properties
-        +3,250         3,250 renpy.text.font.face_cache
+        +3,233         3,233 renpy.atl.PROPERTIES
+        +3,236         3,236 renpy.screenlang.window_properties
+        +3,236         3,236 renpy.sl2.sldisplayables.bar_properties
         +3,253         3,253 renpy.gl.gltexture.Texture
-        +3,311         3,311 renpy.defaultstore.Movie
-        +3,407         3,407 renpy.preferences.pad_bindings
+        +3,337         3,337 renpy.defaultstore.Movie
+        +3,395         3,395 renpy.config.game_menu
         +3,410         3,410 renpy.gl.gldraw.Rtt
+        +3,436         3,436 renpy.text.font.face_cache
         +3,440         3,440 store.poem_s2
         +3,463         3,463 renpy.parser.Lexer
         +3,514         3,514 renpy.defaultstore.Text
         +3,534         3,534 renpy.game.preferences
-        +3,576         3,576 renpy.sl2.sldisplayables.window_properties
         +3,581         3,581 renpy.pyanalysis.PyAnalysis
+        +3,588         3,588 renpy.sl2.sldisplayables.window_properties
         +3,599         3,599 renpy.display.motion.TransformState
         +3,786         3,786 renpy.defaultstore.CropMove
         +3,896         3,896 store.build.early_base_patterns
         +3,994         3,994 store._defaults_set
         +4,096         4,096 store.build.renpy_patterns
+        +4,107         4,107 renpy.loader.loadable_cache
         +4,109         4,109 store._default_keymap
-        +4,158         4,158 renpy.angle.gldraw.Rtt
-        +4,212         4,212 renpy.lint.python_builtins
+        +4,114         4,114 renpy.display.transition.CropMove
+        +4,132         4,132 renpy.preferences.pad_bindings
+        +4,183         4,183 renpy.angle.gldraw.Rtt
         +4,218         4,218 renpy.angle.gltexture.Texture
         +4,230         4,230 renpy.test.testkey.unicode_to_code
         +4,265         4,265 renpy.style.StyleManager
         +4,290         4,290 renpy.python.DetRandom
-        +4,436         4,436 renpy.screenlang.position_properties
-        +4,436         4,436 renpy.screenlang.text_position_properties
+        +4,390         4,390 renpy.dump.screens
         +4,440         4,440 renpy.config.pad_bindings
-        +4,462         4,462 renpy.screenlang.side_position_properties
-        +4,492         4,492 renpy.dump.screens
+        +4,472         4,472 renpy.screenlang.position_properties
+        +4,472         4,472 renpy.screenlang.text_position_properties
+        +4,498         4,498 renpy.screenlang.side_position_properties
         +4,515         4,515 store.Gallery
         +4,554         4,554 renpy.angle.gl.__pyx_capi__
         +4,564         4,564 store.yuripupils_move
@@ -1971,7 +1973,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +4,648         4,648 renpy.sl2.sldisplayables.side_position_properties
         +4,648         4,648 renpy.sl2.sldisplayables.text_position_properties
         +4,648         4,648 renpy.sl2.slproperties.position_properties
-        +4,769         4,769 renpy.atl.PROPERTIES
+        +4,663         4,663 store._history_list
         +5,050         5,050 store.d11
         +5,050         5,050 store.d21
         +5,050         5,050 store.d22
@@ -2054,25 +2056,26 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +5,062         5,062 store.i44
         +5,096         5,096 store.heartbeat
         +5,271         5,271 renpy.display.core.Interface
-        +5,379         5,379 renpy.savelocation.scan_thread
+        +5,421         5,421 renpy.loader.auto_thread
         +5,652         5,652 renpy.display.render.Canvas
         +5,669         5,669 store._layout
+        +5,724         5,724 renpy.gl.gltexture.texture_numbers
         +5,904         5,904 store.credits_scroll_left
         +5,904         5,904 store.credits_scroll_right
         +5,910         5,910 store.credits_text_scroll_left
         +5,910         5,910 store.credits_text_scroll_right
-        +6,024         6,024 renpy.screenlang.text_properties
-        +6,050         6,050 renpy.screenlang.text_text_properties
+        +6,060         6,060 renpy.screenlang.text_properties
+        +6,086         6,086 renpy.screenlang.text_text_properties
         +6,110         6,110 store.noise_alpha
         +6,116         6,116 store.particle_fadeout
         +6,174         6,174 store.n_cg2_wiggle_loop
-        +6,244         6,244 renpy.loader.common_files
+        +6,254         6,254 renpy.loader.common_files
         +6,254         6,254 store._movebottom
         +6,254         6,254 store._moveleft
         +6,254         6,254 store._moveright
         +6,254         6,254 store._movetop
-        +6,257         6,257 renpy.defaultstore.Drag
         +6,272         6,272 store.tinstant
+        +6,292         6,292 renpy.defaultstore.Drag
         +6,366         6,366 store.malpha
         +6,412         6,412 renpy.sl2.sldisplayables.text_properties
         +6,412         6,412 renpy.sl2.sldisplayables.text_text_properties
@@ -2083,7 +2086,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +6,476         6,476 store.sticker_m_glitch
         +6,486         6,486 store.sticker_right
         +6,535         6,535 renpy.loadsave.cache
-        +6,565         6,565 renpy.color.Color
+        +6,591         6,591 renpy.color.Color
         +6,616         6,616 store.center
         +6,616         6,616 store.left
         +6,616         6,616 store.offscreenleft
@@ -2099,6 +2102,7 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +6,768         6,768 store.credits_sticker_4
         +6,816         6,816 store.s_kill_bg_start
         +6,834         6,834 store.build.packages
+        +6,868         6,868 renpy.display.predict.screens
         +6,908         6,908 store.paper_in
         +7,064         7,064 renpy.config.default_keymap
         +7,324         7,324 store.noisefade
@@ -2106,7 +2110,6 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +7,326         7,326 store.vignettefade
         +7,328         7,328 store.sink
         +7,336         7,336 store.leftin
-        +7,504         7,504 renpy.display.predict.screens
         +7,688         7,688 store.reset
         +7,702         7,702 store.paper_out
         +7,862         7,862 store.sticker_move_n
@@ -2114,18 +2117,17 @@ Memory diff at Thu Jul 12 00:50:36 2018:
         +7,930         7,930 store.n_cg2_zoom
         +8,192         8,192 store.thide
         +8,210         8,210 store.poem_y23
-        +8,228         8,228 renpy.loader.auto_mtimes
-        +8,234         8,234 renpy.display.im.cache
+        +8,227         8,227 renpy.lint.python_builtins
         +8,258         8,258 store.hop
         +8,258         8,258 store.hopfocus
         +8,260         8,260 store.dip
-        +8,382         8,382 renpy.pyanalysis.constants
+        +8,502         8,502 renpy.display.im.cache
         +8,808         8,808 renpy.statements.parsers
         +8,880         8,880 store.lhide
         +8,902         8,902 renpy.dump.transforms
         +9,182         9,182 store.credits_scroll
         +9,194         9,194 store.face
-        +9,376         9,376 renpy.display.screen.screens_by_name
+        +9,236         9,236 renpy.display.screen.screens_by_name
         +9,410         9,410 store.credits_text_scroll
         +9,540         9,540 renpy.statements.registry
         +9,676         9,676 store.menu_nav_move
@@ -2134,82 +2136,80 @@ Memory diff at Thu Jul 12 00:50:36 2018:
        +10,219        10,219 store.theme
        +10,410        10,410 store.delayed_blink
        +10,630        10,630 store.credits_sticker_scroll
-       +10,795        10,795 renpy.config.default_transform
+       +10,848        10,848 renpy.config.default_transform
        +11,150        11,150 store.rewind
        +11,194        11,194 renpy.bootstrap.NullFile
        +11,194        11,194 store.notify_appear
        +11,216        11,216 store.sticker_hop
-       +11,314        11,314 renpy.config.keymap
+       +11,339        11,339 renpy.config.keymap
        +11,722        11,722 store.menu_bg_loop
        +12,014        12,014 store.menu_art_move
        +12,230        12,230 store.panic
        +12,451        12,451 renpy.subprocess.__doc__
        +12,776        12,776 store.cgfade
-       +12,886        12,886 renpy.display.focus.focus_list
        +12,948        12,948 store._notify_transform
-       +13,559        13,559 renpy.defaultstore.Transform
        +14,118        14,118 store.heartbeat2
-       +14,360        14,360 renpy.test.testkey.code_to_unicode
        +14,400        14,400 store.tcommon
+       +14,420        14,420 renpy.test.testkey.code_to_unicode
+       +14,492        14,492 renpy.defaultstore.Transform
        +14,528        14,528 store.focus
        +14,585        14,585 store.vignetteflicker
-       +14,766        14,766 store.process_list
        +15,663        15,663 renpy.styledata.stylesets.OrderedDict
        +15,756        15,756 store.layerflicker
-       +16,831        16,831 renpy.screenlang.parser
+       +16,602        16,602 renpy.pyanalysis.constants
+       +16,857        16,857 renpy.screenlang.parser
        +17,012        17,012 store.menu_bg_move
-       +17,320        17,320 renpy.parser.statements
+       +17,269        17,269 renpy.game.contexts
+       +17,373        17,373 renpy.parser.statements
        +18,648        18,648 store._console.console
        +19,162        19,162 store.dizzy
-       +20,688        20,688 renpy.gl.gltexture.tiling_cache
-       +20,772        20,772 renpy.game.contexts
        +20,972        20,972 store.n_cg2_wiggle
-       +21,665        21,665 renpy.audio.audio.channels
-       +24,631        24,631 renpy.ast.default_statements
+       +21,380        21,380 renpy.audio.audio.channels
+       +24,607        24,607 renpy.ast.default_statements
        +24,752        24,752 renpy.lint.renpy_builtins
-       +25,782        25,782 renpy.style.all_properties
-       +29,500        29,500 renpy.dump.definitions
-       +30,220        30,220 renpy.loader.game_files
-       +33,008        33,008 renpy.display.focus.screen_of_focused
-       +33,070        33,070 renpy.pyanalysis.pure_functions
-       +34,025        34,025 renpy.sl2.slast.scache
+       +25,461        25,461 renpy.display.interface
+       +27,298        27,298 renpy.style.all_properties
+       +28,064        28,064 renpy.dump.definitions
+       +28,826        28,826 renpy.loader.game_files
+       +29,031        29,031 renpy.styledata.stylesets.all_properties
+       +33,038        33,038 renpy.pyanalysis.pure_functions
+       +33,989        33,989 renpy.sl2.slast.scache
        +42,878        42,878 renpy.__builtins__
-       +54,802        54,802 store._history_list
+       +54,664        54,664 renpy.gl.gltexture.tiling_cache
        +55,342        55,342 renpy.python.clean_store_backup
        +60,220        60,220 store.full_wordlist
-       +63,628        63,628 renpy.game.persistent
-       +68,932        68,932 renpy.python.store_dicts
-       +73,268        73,268 renpy.store
-       +80,080        80,080 renpy.translation.style_backup
-       +87,674        87,674 renpy.loader.lower_map
-       +95,582        95,582 renpy.display.image.image_attributes
+       +68,577        68,577 renpy.python.store_dicts
+       +73,291        73,291 renpy.store
+       +79,140        79,140 renpy.translation.style_backup
+       +79,658        79,658 renpy.game.persistent
+       +85,646        85,646 renpy.loader.lower_map
+       +95,496        95,496 renpy.display.image.image_attributes
        +99,588        99,588 renpy.style.prefixed_all_properties
       +101,544       101,544 renpy.loader.archives
-      +119,296       119,296 renpy.translation.deferred_styles
+      +102,066       102,066 renpy.loader.auto_mtimes
+      +117,076       117,076 renpy.translation.deferred_styles
       +121,585       121,585 renpy.sl2.slparser.parser
-      +138,224       138,224 renpy.text.font.font_cache
-      +155,146       155,146 renpy.screenlang.all_keyword_names
-      +156,567       156,567 renpy.persistent.backup
-      +175,495       175,495 renpy.loadsave.location
+      +155,200       155,200 renpy.screenlang.all_keyword_names
+      +171,275       171,275 renpy.persistent.backup
       +176,071       176,071 renpy.sl2.slparser.all_keyword_names
-      +181,720       181,720 renpy.sl2.slparser.screen_parser
-      +184,804       184,804 renpy.atl.compile_queue
-      +199,564       199,564 renpy.display.screen.predict_cache
-      +266,379       266,379 renpy.style.styles
-      +316,023       316,023 renpy.loader.loadable_cache
-      +326,818       326,818 renpy.display.interface
-      +429,997       429,997 renpy.display.predict.predicted
-      +971,670       971,670 renpy.screenlang.all_statements
-    +1,058,665     1,058,665 renpy.display.info
-    +1,186,107     1,186,107 renpy.sl2.slparser.all_statements
-    +1,230,790     1,230,790 renpy.display.screen.screens_at_sort
-    +1,322,231     1,322,231 renpy.backup
-    +2,243,169     2,243,169 renpy.game.log
-    +3,845,963     3,845,963 renpy.pyanalysis.ccache
-    +5,185,144     5,185,144 renpy.display.image.images
-    +5,763,717     5,763,717 renpy.display.draw
-   +17,882,869    17,882,869 renpy.game.script
-   +91,418,196    91,418,196 renpy.gl.gltexture.free_textures
+      +181,747       181,747 renpy.sl2.slparser.screen_parser
+      +184,970       184,970 renpy.atl.compile_queue
+      +190,193       190,193 renpy.loadsave.location
+      +241,436       241,436 renpy.text.font.font_cache
+      +261,958       261,958 renpy.style.styles
+      +413,921       413,921 renpy.display.predict.predicted
+      +907,333       907,333 renpy.display.screen.predict_cache
+      +908,929       908,929 renpy.game.log
+      +971,757       971,757 renpy.screenlang.all_statements
+      +984,061       984,061 renpy.display.screen.screens_at_sort
+    +1,058,675     1,058,675 renpy.display.info
+    +1,186,304     1,186,304 renpy.sl2.slparser.all_statements
+    +1,301,460     1,301,460 renpy.backup
+    +4,201,628     4,201,628 renpy.pyanalysis.ccache
+    +5,186,871     5,186,871 renpy.display.image.images
+    +5,622,197     5,622,197 renpy.display.draw
+   +17,422,422    17,422,422 renpy.game.script
+   +92,351,376    92,351,376 renpy.gl.gltexture.free_textures
 -------------- -------------
-  +138,759,011   138,759,011 Total memory usage (in bytes).
+  +138,145,682   138,145,682 Total memory usage (in bytes).
 

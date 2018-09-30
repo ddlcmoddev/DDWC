@@ -75,7 +75,7 @@ style main_menu_frame:
     xsize 310
     yfill True
 
-    background "menu_nav"
+    background "menu_nav2"
 
 style main_menu_vbox:
     xalign 1.0
@@ -93,3 +93,9 @@ style main_menu_text:
 
 style main_menu_title:
     size gui.title_text_size
+
+screen menu_nav2:
+    background "mod_assets/menu-nav.png"
+    xalign 1.0
+    yalign 1.0
+    
